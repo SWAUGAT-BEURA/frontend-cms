@@ -1,0 +1,72 @@
+<app-nav></app-nav>
+<div class="back">
+  <div class="container">
+    <form id="add" #regForm="ngForm" (ngSubmit)="onSubmitForm()">
+      <div class="row ">
+        <div class="col-12">
+          <div class="card shadow mt-4">
+            <div class="card-header bg-success text-white">
+              <div>
+                <h4>Contact Details Form: </h4>
+              </div>
+            </div>
+            <div class="card-body border border-success">
+              <div [class]="isError? 'alert alert-danger':'d-none'" class="my-4">{{message}}</div>
+              <div [class]="isSuccess? 'alert alert-success':'d-none'" class="my-4">{{message}}</div>
+              <div class="row">
+                <div class="col-12  text-dark">
+                  <div class="col mt-4">
+                    <input type="text" #name="ngModel" required class="form-control" name="contactname" placeholder="ContactName" [(ngModel)]="contact.name">
+                    <div *ngIf="name.errors && name.touched">
+                      <div class="text-danger" *ngIf="name.errors.required" >Contact Name Required</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12  text-dark mt-4">
+                  <input type="text" #phone="ngModel" required class="form-control" name="contactphone" placeholder="ContactPhone" [(ngModel)]="contact.phone">
+                  <div *ngIf="phone.errors && phone.touched">
+                    <div class="text-danger" *ngIf="phone.errors.required">Contact Phone Required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12  text-dark mt-4">
+                  <div class="col">
+                    <input type="text" #email="ngModel" required class="form-control" name="contactemail" placeholder="ContactEmail" [(ngModel)]="contact.email" >
+                    <div *ngIf="email.errors && email.touched">
+                      <div class="text-danger" *ngIf="email.errors.required">Contact Email Required</div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12  text-dark mt-4">
+                  <div class="col">
+                    <input type="text" #type="ngModel" required class="form-control" name="contacttype" placeholder="ContactType" [(ngModel)]="contact.type">
+                    <div *ngIf="type.errors && type.touched">
+                      <div class="text-danger" *ngIf="type.errors.required">Contact Type Required</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12  text-dark mt-4">
+                  <div class="col">
+                    <input type="text" #photo="ngModel" required class="form-control" name="contactphoto" placeholder="ContactPhoto" [(ngModel)]="contact.photo">
+                    <div *ngIf="photo.errors && photo.touched">
+                      <div class="text-danger" *ngIf="photo.errors.required">Photo Required</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="col-6 mt-4 btn btn-dark " [disabled]="regForm.form.invalid"  >Add To Contacts</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+.navbar {
+  min-height: 80px;
+}
+
+.navbar-brand{
+  font-style: normal;
+  font-weight: bolder;
+  font-size:x-large;
+
+}
+
+body{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: large;
+}

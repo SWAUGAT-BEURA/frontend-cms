@@ -1,0 +1,58 @@
+<app-nav></app-nav>
+<div class="nothing">
+  <h2 *ngIf="!contactData.length else elseblock">No Contacts Added</h2>
+  <h2 *ngIf="!contactData.length else elseblock">You Can add your contacts anytime</h2>
+</div>
+<ng-template #elseblock>
+</ng-template>
+
+<div class="back">
+  <div class="container">
+    <div class="row ">
+      <div class="col-12">
+        <div class="card shadow mt-4" *ngFor="let contact of contactData;let idx=index">
+          <div class="card-header bg-success text-white">
+            <div>
+              <h4>Contact Name: <strong>{{contact.name}}</strong></h4>
+            </div>
+          </div>
+          <div class="card-body border border-success">
+            <div class="row">
+              <div class="col-12 bg-light text-dark">
+                <div class="col">
+                  <div>
+                    <h5>Email: <strong>{{contact.email}}</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 bg-light text-dark">
+                <div>
+                  <h5>Phone: <strong>{{contact.phone}}</strong></h5>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 bg-light text-dark">
+                <div class="col">
+                  <div>
+                    <h5>Type: <strong>{{contact.type}}</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-12  text-dark">
+                <div class="col">
+                  <a routerLink="/contact/edit/{{contact._id}}" class="  btn btn-success">Edit</a>&nbsp;&nbsp;
+                  <a routerLink="/contact/delete/{{contact._id}}" class="  btn btn-dark">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
